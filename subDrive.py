@@ -18,7 +18,7 @@ def listener():
     # run simultaneously.
     rospy.init_node('listener', anonymous=True)
 
-    rospy.Subscriber('controller', Twist, callback)
+    rospy.Subscriber('joy', Twist, callback)
 
     # spin() simply keeps python from exiting until this node is stopped
     rospy.spin()
