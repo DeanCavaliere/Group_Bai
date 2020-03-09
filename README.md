@@ -49,6 +49,11 @@ Group repo for team Bai Bai Bai
 
      $ rostopic echo joy
 
+# CSV
+> Running subDriveVM.py creates the csv file with the following format:
+
+     steering, speed
+
 
 # Troubleshooting
 > To test communications at any listener node run the following:
