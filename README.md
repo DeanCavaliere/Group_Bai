@@ -50,7 +50,7 @@ Group repo for team Bai Bai Bai
      $ rostopic echo joy
 
 # CSV
-> Running subDriveVM.py creates the csv file with the following format:
+> Running subDriveVM.py creates a csv file containing the following information:
 
      steering, speed
 
