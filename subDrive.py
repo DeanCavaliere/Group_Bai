@@ -7,16 +7,43 @@ from sensor_msgs.msg import Joy
 #from rpiHAT import ServoNT
 import time
 
+low = 0.12
+mid = 0.15
+high = 0.18
+
+
 def callback(data):
     #rospy.loginfo(rospy.get_caller_id() + 'I heard %s', data.data)
     twist = Twist()
     twist.linear.x = data.axes[1]
     twist.angular.z = data.axes[0]
-    print('linear x is: ' + str(twist.linear.x)) #FORWARD/BACK =  1/-1
-    print('Angular z is ' + str(twist.angular.z)) #LEFT/RIGHT = 1/-1
-    #s=ServoNT(channel=2, freq=97.9) #Steering?
-    #d=ServoNT(channel=1, freq=97.9) #Driving?
-    #s.pulse(dummy)
+    #print('linear x is: ' + str(twist.linear.x)) #FORWARD/BACK =  1/-1
+    #print('Angular z is ' + str(twist.angular.z)) #LEFT/RIGHT = 1/-1
+    
+    s=ServoNT(channel=2, freq=97.9) #Steering?
+    d=ServoNT(channel=1, freq=97.9) #Driving?
+    
+    if float(twist.linear.x) > float(0.500):
+        hold1 = (float(twist.linear.x)) #Forwards
+        s.pulse(high)
+    elif float(twist.linear.x) < float(-0.500):
+        hold1 = (float(twist.linear.x)) #Backwards
+        s.pulse(low)
+    else:
+        hold1 = (float(twist.linear.x)) #STOP
+        s.pulse(mid)
+    # LEFT/RIGHT = 1/-1
+    if float(twist.angular.z) > float(0.500):
+        hold2 = (float(twist.angular.z)) #LEFT
+        d.pulse(0.12)
+    elif float(twist.angular.z) < float(-0.500):
+        hold2 = (float(twist.angular.z)) #RIGHT
+        d.pulse(0.18)
+    else:
+        hold2 = (float(twist.angular.z)) #STRAGHT
+        d.pulse(0.15)
+    
+    
     #d.pulse(dummy2)
     #.15 center .12 left .17 right
 
