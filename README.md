@@ -30,11 +30,11 @@ Group repo for team Bai Bai Bai
      $ export ROS_MASTER_URI=ip_address:11311
      
 
-### RPI A_t1 (with joy):
+### RPI A_Terminal1 (with joy):
 
      $ roscore
      
-### RPI A_t2 (with joy):
+### RPI A_Terminal2 (with joy):
 
      $ rosparam set joy_node/dev/ "/dev/input/js0"
      
@@ -50,3 +50,13 @@ Group repo for team Bai Bai Bai
      $ rostopic echo joy
 
 
+# Troubleshooting
+> To test communications at any listener node run the following:
+
+     $ rosnode ping joy_node
+     
+> This will let you know if the nodes can communicate which can also be done with:
+
+     $ rostopic echo joy
+     
+> This displays the joy data
