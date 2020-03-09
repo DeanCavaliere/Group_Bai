@@ -30,22 +30,22 @@ Group repo for team Bai Bai Bai
      $ export ROS_MASTER_URI=ip_address:11311
      
 
-> RPI A_t1 (with joy):
+# > RPI A_t1 (with joy):
 
      $ roscore
      
-> RPI A_t2 (with joy):
+# > RPI A_t2 (with joy):
 
      $ rosparam set joy_node/dev/ "/dev/input/js0"
      
      $ rosrun joy joy_node
      
-> RPI B:
+# > RPI B:
      $ cd ~/catkin_ws/
      
      $ rosrun drive subDrive.py
      
-> VM:
+# > VM:
 
      $ rostopic echo joy
 
