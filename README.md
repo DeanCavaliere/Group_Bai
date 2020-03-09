@@ -1,6 +1,6 @@
 # Group_Bai
 
-Group repo for team Bai Bai Bai
+This is the group repo for team Bai Bai Bai's implimentation of homework 6; moving a ROS robot with joystick inputs.
 
 # Assumptions
 
