@@ -44,7 +44,7 @@ def callback(data):
 
 def listener():                                                                                                                                                   # anonymous=True flag means that rospy will choose a unique                                                                                                                                                        # name for our 'listener' node so that multiple listeners can                                                                                                                                                      # run simultaneously.
     rospy.init_node('FastBai')
-    rospy.Subscriber('joy', Joy, callback, queue_size=2)
+    rospy.Subscriber('joy', Joy, callback, queue_size=1)
     # spin() simply keeps python from exiting until this node is stopped
     rospy.spin()
 
